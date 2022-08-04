@@ -16,10 +16,10 @@ import jakarta.persistence.NoResultException;
  * 
  * This interface implements all CRUD operations as default methods.
  * 
- * Entity class name extension must be specified in "getNameAddition()"!!!
+ * Entity class name extension must be specified in "getNameExtension()"!!!
  * Naming of entity and dao classes should be done as follows;
  * Entity.class, EntityDao.class
- * getNameAddition() should return "Dao"!
+ * getNameExtension() should return "Dao"!
  * 
  * Entity id name must be specified in "getIdName()"!!! 
  * getIdName() should return "oid"!
@@ -30,7 +30,7 @@ import jakarta.persistence.NoResultException;
 
 public interface CRUDable<T>
 {
-	private String getNameAddition()
+	private String getNameExtension()
 	{
 		// Enter class extension name for dao classes here.
 		return "Dao";
@@ -133,8 +133,8 @@ public interface CRUDable<T>
 	
 	default T find(long oid)
 	{
-		String daoName = this.getClass().getSimpleName();
-		String className = daoName.replaceFirst(getNameAddition(), "");
+		String classNameWithExtension = this.getClass().getSimpleName();
+		String className = classNameWithExtension.replaceFirst(getNameExtension(), "");
 		
 		Session session = databaseConnectionHibernate();
 		
@@ -163,7 +163,7 @@ public interface CRUDable<T>
 	default ArrayList<T> listAll()
 	{
 		String daoName = this.getClass().getSimpleName();
-		String className = daoName.replaceFirst(getNameAddition(), "");
+		String className = daoName.replaceFirst(getNameExtension(), "");
 		
 		Session session = databaseConnectionHibernate();
 		
