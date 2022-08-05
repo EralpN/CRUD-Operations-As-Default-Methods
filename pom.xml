@@ -24,4 +24,10 @@
 			<version>42.4.0</version>
 		</dependency>
 	</dependencies>
+	<properties>
+		<maven.compiler.source>18</maven.compiler.source>
+		<maven.compiler.target>18</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
 </project>
