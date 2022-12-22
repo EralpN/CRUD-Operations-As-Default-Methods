@@ -16,18 +16,16 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class DatabaseEntity
-{
+public class DatabaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long oid;
-	
+
 	private String name;
-	
+
 	private int number;
 
-	public DatabaseEntity(String name, int number)
-	{
+	public DatabaseEntity(String name, int number) {
 		super();
 		this.name = name;
 		this.number = number;
