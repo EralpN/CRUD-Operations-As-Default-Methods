@@ -33,7 +33,7 @@ public interface CRUDable<T> {
 	}
 
 	private String getIdName() {
-		// Enter name of id thats being used in your entity classes here.
+		// Enter name of id that's being used in your entity classes here.
 		return "oid";
 	}
 
